@@ -2,22 +2,34 @@
   "name": "ocr-app",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "electron": "npm run build && electron .",
+    "package": "npm run build && electron-packager . ocr-app --platform=win32 --arch=x64 --out=dist --overwrite --prune=true --ignore=.next --ignore=src --ignore=node_modules/electron* --ignore=package-lock.json --ignore=README.md --ignore=postcss.config.mjs --ignore=eslint.config.mjs --ignore=jsconfig.json --ignore=tailwind.config.js --ignore=next.config.mjs",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
+    "next": "15.2.4",
+    "pdf-parse": "^1.1.1",
+    "pdfjs-dist": "^5.0.375",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.4"
+    "react-dropzone": "^14.3.8",
+    "tesseract.js": "^6.0.0",
+    "http-server": "^14.1.1"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "electron": "^36.2.0",
+    "electron-packager": "^17.1.1",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4"
   }
 }
